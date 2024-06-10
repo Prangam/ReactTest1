@@ -1,36 +1,38 @@
+// src/styles/shapes.scss
+@import './variables.scss';
+
 .shape-button {
-    background-color: #ffa200;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    margin: 5px;
-    &:hover {
-      background-color: #6eda78;
-    }
+  background-color: $primary-color;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+  &:hover {
+    background-color: $secondary-color;
   }
-  
-  .shape-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin-top: 20px;
-  
-    &.swapped {
-      grid-template-columns: repeat(2, 1fr);
-    }
+}
+
+.shape-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+
+  &.swapped {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .shape {
-    background-color: #ddd;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s;
-  
-    &.rotated {
-      transform: rotate(90deg);
-    }
+}
+
+.shape {
+  background-color: #ddd;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+
+  &.rotated {
+    transform: rotate(90deg);
   }
-  
+}
