@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Layout, Button } from 'antd';
+import { Layout, Button, Dropdown, Menu } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import ShapeButtons from './components/ShapeButtons';
 import ShapeGrid from './components/ShapeGrid';
@@ -25,11 +26,26 @@ const App: React.FC = () => {
     setIsGridSwapped(!isGridSwapped);
   };
 
+  const menu = (
+    <Menu>
+      <Menu.Item key="en" onClick={() => changeLanguage('en')}>
+        EN
+      </Menu.Item>
+      <Menu.Item key="th" onClick={() => changeLanguage('th')}>
+        TH
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
-    <Layout>
-      <Header>
-        <Button onClick={() => changeLanguage('en')}>EN</Button>
-        <Button onClick={() => changeLanguage('th')}>TH</Button>
+    <Layout className="layout">
+      <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div></div> {/* Empty div to push language dropdown to the right */}
+        <Dropdown overlay={menu} trigger={['click']}>
+          <Button>
+            {i18n.language.toUpperCase()} <DownOutlined />
+          </Button>
+        </Dropdown>
       </Header>
       <Content>
         <ShapeButtons onMoveShape={handleMoveShape} onMovePosition={handleMovePosition} />

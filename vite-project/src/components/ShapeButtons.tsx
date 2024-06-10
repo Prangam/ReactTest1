@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Space } from 'antd';
-import { useTranslation } from 'react-i18next';
+import { Button } from 'antd';
+import { LeftOutlined, SwapOutlined, RightOutlined } from '@ant-design/icons';
+import '../styles/shapes.scss';
 
 interface ShapeButtonsProps {
   onMoveShape: () => void;
@@ -8,13 +9,12 @@ interface ShapeButtonsProps {
 }
 
 const ShapeButtons: React.FC<ShapeButtonsProps> = ({ onMoveShape, onMovePosition }) => {
-  const { t } = useTranslation();
-
   return (
-    <Space>
-      <Button onClick={onMoveShape} className="shape-button">{t('Move shape')}</Button>
-      <Button onClick={onMovePosition} className="shape-button">{t('Move position')}</Button>
-    </Space>
+    <div className="shape-container">
+      <Button onClick={onMoveShape} className="shape-button" icon={<LeftOutlined />} />
+      <Button onClick={onMovePosition} className="shape-button" icon={<SwapOutlined />} />
+      <Button onClick={onMoveShape} className="shape-button" icon={<RightOutlined />} />
+    </div>
   );
 };
 
